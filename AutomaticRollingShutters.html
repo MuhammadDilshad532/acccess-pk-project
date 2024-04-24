@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automatic Rolling Shutters</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        margin: 20px;
+        background-color: #d3effd;
+      }
+
+      .title {
+        background-color: #d3effd;
+        padding: 12px 30px;
+        font-size: 25px;
+        border-radius: 8px;
+        color: #2b8fb1;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #2b8fb1;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        font-size: x-large;
+        padding: 20px 0px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+
+      main {
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 10px 40px;
+        border-radius: 20px;
+        background-color: white;
+      }
+
+      button a {
+        text-decoration: none;
+        color: white;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #2b8fb1;
+      }
+      .product-color {
+        color: #2b8fb1;
+      }
+      p {
+        font-size: 10px;
+        margin-top: 0px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="title">Automatic Rolling Shutters</h1>
+      <select
+        name="Selectmetor"
+        id="selectmetor"
+        class="product-color"
+      ></select>
+      <select name="Brand" id="Brand" class="product-color"></select>
+
+      <input type="text" placeholder="Enter your feet" id="feetInput" />
+      <p>
+        If you need 5 x 5 feet, then multiply both of them and find the answer
+        here to put on it (for example 5 x 5 = 25 the 25 put on top) and you
+        will get the price.
+      </p>
+      <button type="button" id="calculatePriceBtn">Calculate Price</button>
+
+      <div id="result"></div>
+
+      <a href="index.html" class="back-btn">
+        <button type="button">Back</button>
+      </a>
+    </main>
+    <script>
+      const selectmetor = [
+        { label: "Automatic Rolling Shutters Types" },
+        { label: "Aluminium Door", price: 0 },
+        { label: "GI Door", price: 0 },
+      ];
+      const Brand = [{ label: "Brand" }, { label: "Germany", price: 0 }];
+
+      const basePrice = 150000;
+
+      document
+        .getElementById("calculatePriceBtn")
+        .addEventListener("click", calculatePrice);
+      document.getElementById("selectmetor").innerHTML =
+        generateDropdownOptions(selectmetor);
+      document.getElementById("Brand").innerHTML =
+        generateDropdownOptions(Brand);
+
+      function generateDropdownOptions(options) {
+        return options
+          .map(
+            (option) =>
+              `<option value="${option.price || ""}">${option.label}</option>`
+          )
+          .join("");
+      }
+      document
+        .querySelector(".back-btn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          if (confirm("Are you sure you want to go back?")) {
+            window.history.back();
+          }
+        });
+      function calculatePrice() {
+        const enteredFeet = parseFloat(
+          document.getElementById("feetInput").value
+        );
+        const selectedSelectmetorIndex =
+          document.getElementById("selectmetor").selectedIndex;
+        const selectedBrandIndex =
+          document.getElementById("Brand").selectedIndex;
+
+        if (
+          isNaN(enteredFeet) ||
+          isNaN(selectedBrandIndex) ||
+          isNaN(selectedSelectmetorIndex) ||
+          enteredFeet <= 0
+        ) {
+          alert("Please enter a valid feet value.");
+          return;
+        }
+
+        const selectedSelectmetor = selectmetor[selectedSelectmetorIndex];
+        const selectedBrand = Brand[selectedBrandIndex];
+
+        console.log(selectedBrand, selectedSelectmetor, enteredFeet);
+
+        const totalPrice =
+          basePrice +
+          (selectedBrand.price || 0) +
+          (selectedSelectmetor.price || 0) +
+          enteredFeet * 2000;
+
+        document.getElementById(
+          "result"
+        ).innerHTML = `The calculated price is: Rs${totalPrice.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

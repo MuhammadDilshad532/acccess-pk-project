@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commercial Passenger Lift Electric</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        margin: 20px;
+        background-color: #d3effd;
+      }
+
+      .title {
+        background-color: #d3effd;
+        padding: 12px 30px;
+        font-size: 25px;
+        border-radius: 8px;
+        color: #2b8fb1;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #2b8fb1;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        font-size: x-large;
+        padding: 20px 0px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+
+      main {
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 10px 40px;
+        border-radius: 20px;
+        background-color: white;
+      }
+
+      .product_color {
+        color: #2b8fb1;
+      }
+
+      button a {
+        text-decoration: none;
+        color: white;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #2b8fb1;
+      }
+      .product-color {
+        color: #2b8fb1;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="title">Commercial Passenger Lift Electric</h1>
+      <select
+        name="stops"
+        id="passengerlifttypes"
+        class="product_color"
+      ></select>
+      <select name="stops" id="NumberOfStops" class="product-color"></select>
+      <select name="stops" id="persons" class="product-color"></select>
+      <select name="stops" id="Brand" class="product-color"></select>
+      <select name="stops" id="CabinTypes" class="product-color"></select>
+      <select name="stops" id="CabinDimension" class="product-color"></select>
+
+      <select name="stops" id="LiftShafttypes" class="product-color"></select>
+      <select name="stops" id="Voltage" class="product-color"></select>
+      <button type="button" id="calculatePriceBtn">Calculate Price</button>
+      <div id="result"></div>
+      <a href="index.html" class="back-btn"
+        ><button type="button">Back</button></a
+      >
+    </main>
+
+    <script>
+      const passengerlifttypes = [
+        { label: "Commercial Passenger Lift Types" },
+        { label: "Commercial passenger lift electric 630kg", price: 2200000 },
+      ];
+
+      const NumberOfStops = [
+        { label: "Number of Stops" },
+        { label: "2 Stops", price: 0 },
+        { label: "3 Stops", price: 300000 },
+        { label: "4 Stops", price: 600000 },
+        { label: "5 Stops", price: 900000 },
+        { label: "6 Stops", price: 1200000 },
+        { label: "7 Stops", price: 1500000 },
+        { label: "8 Stops", price: 1800000 },
+        { label: "9 Stops", price: 2100000 },
+        { label: "10 Stops", price: 2400000 },
+        { label: "11 Stops", price: 2700000 },
+        { label: "12 Stops", price: 3000000 },
+        { label: "13 Stops", price: 3300000 },
+        { label: "14 Stops", price: 3600000 },
+        { label: "15 Stops", price: 3900000 },
+        { label: "16 Stops", price: 4200000 },
+        { label: "17 Stops", price: 4500000 },
+        { label: "18 Stops", price: 4800000 },
+        { label: "19 Stops", price: 5100000 },
+        { label: "20 Stops", price: 5400000 },
+      ];
+
+      const persons = [
+        { label: "Weight/Persons" },
+
+        { label: "2-4 persons", price: 0 },
+        { label: "4-6 persons", price: 0 },
+
+        { label: "6-8 persons", price: 0 },
+      ];
+
+      const Brand = [
+        { label: "Brand" },
+        { label: "Turkey", price: 0 },
+        { label: "China", price: 0 },
+      ];
+
+      const CabinTypes = [
+        { label: "Cabin Types" },
+
+        { label: "Auto cabin", price: 0 },
+      ];
+
+      const CabinDimension = [
+        { label: "Cabin Dimension" },
+        { label: "(3,3)", price: 0 },
+        { label: "(4,4)", price: 0 },
+        { label: "(5,5)", price: 0 },
+      ];
+
+      const LiftShafttypes = [
+        { label: "Lift Structure Types" },
+
+        { label: "Steel Structure", price: 500000 },
+      ];
+
+      const Voltage = [
+        { label: "Voltage" },
+        { label: "380V 3 Phase", price: 0 },
+      ];
+
+      function generateDropdownOptions(arg) {
+        let options = "";
+        for (let i = 0; i < arg.length; i++) {
+          options += `<option value="${arg[i].price}">${arg[i].label}</option>`;
+        }
+        return options;
+      }
+
+      document.getElementById("passengerlifttypes").innerHTML =
+        generateDropdownOptions(passengerlifttypes);
+      document.getElementById("NumberOfStops").innerHTML =
+        generateDropdownOptions(NumberOfStops);
+      document.getElementById("persons").innerHTML =
+        generateDropdownOptions(persons);
+      document.getElementById("Brand").innerHTML =
+        generateDropdownOptions(Brand);
+      document.getElementById("CabinTypes").innerHTML =
+        generateDropdownOptions(CabinTypes);
+      document.getElementById("CabinDimension").innerHTML =
+        generateDropdownOptions(CabinDimension);
+
+      document.getElementById("LiftShafttypes").innerHTML =
+        generateDropdownOptions(LiftShafttypes);
+      document.getElementById("Voltage").innerHTML =
+        generateDropdownOptions(Voltage);
+
+      document
+        .getElementById("calculatePriceBtn")
+        .addEventListener("click", calculatePrice);
+      document
+        .querySelector(".back-btn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          if (confirm("Are you sure you want to go back?")) {
+            window.history.back();
+          }
+        });
+
+      function calculatePrice() {
+        const exchangeRate = 0;
+        const selectedPassengerLiftType = parseFloat(
+          document.getElementById("passengerlifttypes").value
+        );
+        const selectedNumberOfStops = parseFloat(
+          document.getElementById("NumberOfStops").value
+        );
+        const selectedpersons = parseFloat(
+          document.getElementById("persons").value
+        );
+        const selectedBrand = parseFloat(
+          document.getElementById("Brand").value
+        );
+        const selectedCabinTypes = parseFloat(
+          document.getElementById("CabinTypes").value
+        );
+        const selectedCabinDimension = parseFloat(
+          document.getElementById("CabinDimension").value
+        );
+
+        const selectedLiftShafttypes = parseFloat(
+          document.getElementById("LiftShafttypes").value
+        );
+        const selectedVoltage = parseFloat(
+          document.getElementById("Voltage").value
+        );
+
+        if (
+          isNaN(selectedPassengerLiftType) ||
+          isNaN(selectedNumberOfStops) ||
+          isNaN(selectedpersons) ||
+          isNaN(selectedBrand) ||
+          isNaN(selectedCabinTypes) ||
+          isNaN(selectedCabinDimension) ||
+          isNaN(selectedLiftShafttypes) ||
+          isNaN(selectedVoltage)
+        ) {
+          alert("Please select all the options.");
+          return;
+        }
+
+        let totalPrice =
+          selectedPassengerLiftType +
+          selectedNumberOfStops +
+          selectedpersons +
+          selectedBrand +
+          selectedCabinTypes +
+          selectedCabinDimension +
+          selectedLiftShafttypes +
+          selectedVoltage;
+
+        let totalPriceINR = totalPrice + exchangeRate;
+        document.getElementById(
+          "result"
+        ).innerHTML = `The calculated price is: Rs=${totalPriceINR.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Quotation Calculator</title>
+    <style>
+      :root {
+        --color-primary: #0073ff;
+        --color-white: #2b8fb1;
+        --color-black: #ffffff;
+        --color-black-1: #2261b4;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        margin: 20px;
+        background-color: #d3effd;
+      }
+
+      .menu-bar ul {
+        list-style: none;
+        display: flex;
+      }
+
+      .menu-bar ul li {
+        width: 2120px;
+        padding: 10px 30px;
+        /* text-align: center; */
+        background: transparent;
+        border: 1px solid black;
+        margin: 10px 0px;
+
+        border-radius: 8px;
+        position: relative;
+      }
+
+      .menu-bar ul li a {
+        font-size: 20px;
+        color: var(--color-white);
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .menu-bar ul li a:hover {
+        color: var(--color-primary);
+      }
+
+      .fas {
+        float: right;
+        margin-left: 10px;
+        padding-top: 3px;
+      }
+
+      .dropdown-menu {
+        display: none;
+      }
+
+      .menu-bar ul li:hover .dropdown-menu {
+        display: block;
+        position: absolute;
+        left: 90%;
+        top: 100%;
+        background-color: var(--color-black);
+      }
+
+      .menu-bar ul li:hover .dropdown-menu ul {
+        display: block;
+        margin: 10px;
+      }
+
+      .menu-bar ul li:hover .dropdown-menu ul li {
+        width: 150px;
+        padding: 10px;
+        background-color: #d3effd;
+      }
+
+      .dropdown-menu-1 {
+        display: none;
+      }
+
+      .dropdown-menu ul li:hover .dropdown-menu-1 {
+        display: block;
+        position: absolute;
+        left: 150px;
+        top: 0;
+        background-color: white;
+      }
+      .title {
+        background-color: #d3effd;
+        padding: 12px 30px;
+        font-size: 25px;
+        border-radius: 8px;
+        margin-top: 10px;
+        color: #2b8fb1;
+      }
+
+      .menu-bar {
+        height: 550px;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 10px 40px;
+        border-radius: 20px;
+        background-color: white;
+      }
+      button {
+        background-color: #2b8fb1;
+        color: rgb(255, 255, 255);
+        width: 390px;
+        font-size: x-large;
+        padding: 20px 0px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-left: 30px;
+        margin-top: 200px;
+      }
+      p {
+        margin-left: 10px;
+        color: #2b8fb1;
+      }
+      @media only screen and (max-width: 600px) {
+        .menu-bar ul li:hover .dropdown-menu {
+          left: 0px;
+          top: 120%;
+          background-color: white;
+          border-radius: 5px;
+        }
+        .menu-bar {
+          margin-top: 110px;
+        }
+        .title {
+          font-size: 20px;
+          padding: 15px 15px;
+          text-align: center;
+        }
+        p {
+          margin: 8px 0px 0px 0px;
+          text-align: center;
+          line-height: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu-bar">
+      <h1 class="title">Quotation Price Calculator</h1>
+
+      <div class="container">
+        <ul class="main">
+          <li>
+            <a href="#">Products<i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+              <ul class="container">
+                <li>
+                  <a href="#">Lifts <i class="fas fa-caret-right"></i></a>
+                  <div class="dropdown-menu-1">
+                    <ul>
+                      <a href="CommercialPassengerLiftElectric.html"
+                        ><li>Commercial Passenger Lift Electric</li></a
+                      >
+                      <a href="Panoramicpassengerliftelectric.html"
+                        ><li>Panoramic Passenger Lift Electric</li></a
+                      >
+                      <a href="HomeElectriclift.html"
+                        ><li>Home electric Lift</li></a
+                      >
+                      <a href="HomeHydraulicLift.html"
+                        ><li>Home Hydraulic Lift</li></a
+                      >
+                      <a href="straightStairlift.html"
+                        ><li>Straight Stair lift</li></a
+                      >
+                      <a href="Scissorlift.html"><li>Scissor lift</li></a>
+                      <a href="GlasscleaningLift.html"
+                        ><li>Glass cleaning Lift</li></a
+                      >
+                      <a href="HospitalBedLift.html"><li>Hospital Lift</li></a>
+                      <a href="CargoLift.html"><li>Cargo Lifts</li></a>
+
+                      <a href="WenchTypeLift.html"
+                        ><li>Hosit/Wench Type Lift</li></a
+                      >
+                      <a href="Dumbwaiter.html"> <li>Dumb waiter Lift</li></a>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a href="#"
+                    >Access control Products<i class="fas fa-caret-right"></i
+                  ></a>
+                  <div class="dropdown-menu-1">
+                    <ul>
+                      <a href="GlassDoorsWithsensor.html">
+                        <li>Glass Doors With sensor</li></a
+                      >
+                      <a href="RemotecontrolledGates.html">
+                        <li>Remote controlled Gates</li></a
+                      >
+                      <a href="AutomaticRoadBlockers.html"
+                        ><li>Automatic Road Blockers</li></a
+                      >
+                      <a href="AutomaticRollingShutters.html">
+                        <li>Automatic Rolling Shutters</li></a
+                      >
+                      <a href="AutomaticGarageDoors.html">
+                        <li>Automatic Garage Doors</li></a
+                      >
+                      <a href="AutomaticArmbarriers.html">
+                        <li>Automatic Arm barriers</li></a
+                      >
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <h1 class="title">Explainer !</h1>
+      <p>
+        You click on products for details. When two options are available, lifts
+        and access control products, if you want to buy lifts, click on lifts,
+        then click on the specific lift you want to purchase. After that, fill
+        out the form and find out the price. Do the same for access control
+        products.Thank you!
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cargo Lift Hoist type 2000kg</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        margin: 20px;
+        background-color: #d3effd;
+      }
+
+      .title {
+        background-color: #d3effd;
+        padding: 12px 30px;
+        font-size: 25px;
+        border-radius: 8px;
+        color: #2b8fb1;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #2b8fb1;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        font-size: x-large;
+        padding: 20px 0px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+
+      main {
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 10px 40px;
+        border-radius: 20px;
+        background-color: white;
+      }
+
+      .product_color {
+        color: #2b8fb1;
+      }
+
+      button a {
+        text-decoration: none;
+        color: white;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #2b8fb1;
+      }
+      .product-color {
+        color: #2b8fb1;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="title">Cargo Lift Hoist type 2000kg</h1>
+      <select name="stops" id="CargoLifttypes" class="product_color"></select>
+      <select name="stops" id="NumberOfStops" class="product-color"></select>
+      <select name="stops" id="persons" class="product-color"></select>
+      <select name="stops" id="Brand" class="product-color"></select>
+
+      <select name="stops" id="CabinDimension" class="product-color"></select>
+
+      <select name="stops" id="Conditions" class="product-color"></select>
+      <select name="stops" id="Voltage" class="product-color"></select>
+      <button type="button" id="calculatePriceBtn">Calculate Price</button>
+      <div id="result"></div>
+      <a href="index.html" class="back-btn"
+        ><button type="button">Back</button></a
+      >
+    </main>
+
+    <script>
+      const CargoLifttypes = [
+        { label: "Cargo Lift Hoist type 1500kg", price: 1500000 },
+      ];
+
+      const NumberOfStops = [
+        { label: "Number of Stops" },
+        { label: "2 Stops", price: 0 },
+        { label: "3 Stops", price: 500000 },
+        { label: "4 Stops", price: 1000000 },
+        { label: "5 Stops", price: 1500000 },
+        { label: "6 Stops", price: 2000000 },
+        { label: "7 Stops", price: 2500000 },
+        { label: "8 Stops", price: 3000000 },
+        { label: "9 Stops", price: 3500000 },
+        { label: "10 Stops", price: 4000000 },
+        { label: "11 Stops", price: 4500000 },
+        { label: "12 Stops", price: 5000000 },
+      ];
+
+      const persons = [
+        { label: "Size" },
+        { label: "5ft x 5ft", price: 0 },
+        { label: "6ft x 6ft", price: 200000 },
+        { label: "8ft x 8ft", price: 500000 },
+        { label: "10ft x 10ft", price: 1000000 },
+      ];
+
+      const Brand = [{ label: "Brand" }, { label: "China", price: 0 }];
+
+      const CabinDimension = [
+        { label: "Cabin Dimension" },
+        { label: "(3,3)", price: 0 },
+        { label: "(4,4)", price: 0 },
+        { label: "(5,5)", price: 0 },
+      ];
+
+      const Conditions = [{ label: "Conditions" }, { label: "New", price: 0 }];
+      const Voltage = [
+        { label: "Voltage" },
+        { label: "380V 3 Phase", price: 0 },
+      ];
+
+      function generateDropdownOptions(arg) {
+        let options = "";
+        for (let i = 0; i < arg.length; i++) {
+          options += `<option value="${arg[i].price}" >${arg[i].label}</option>`;
+        }
+        return options;
+      }
+
+      const helo = document.getElementById("CargoLifttypes").value;
+      console.log(helo, "chek val");
+
+      document.getElementById("CargoLifttypes").innerHTML =
+        generateDropdownOptions(CargoLifttypes);
+      document.getElementById("NumberOfStops").innerHTML =
+        generateDropdownOptions(NumberOfStops);
+      document.getElementById("persons").innerHTML =
+        generateDropdownOptions(persons);
+      document.getElementById("Brand").innerHTML =
+        generateDropdownOptions(Brand);
+
+      document.getElementById("CabinDimension").innerHTML =
+        generateDropdownOptions(CabinDimension);
+
+      document.getElementById("Conditions").innerHTML =
+        generateDropdownOptions(Conditions);
+      document.getElementById("Voltage").innerHTML =
+        generateDropdownOptions(Voltage);
+
+      document
+        .getElementById("calculatePriceBtn")
+        .addEventListener("click", calculatePrice);
+      document
+        .querySelector(".back-btn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          if (confirm("Are you sure you want to go back?")) {
+            window.history.back();
+          }
+        });
+      function calculatePrice() {
+        const exchangeRate = 0;
+        const selectedCargoLifttypes = parseFloat(
+          document.getElementById("CargoLifttypes").value
+        );
+        const selectedNumberOfStops = parseFloat(
+          document.getElementById("NumberOfStops").value
+        );
+        const selectedpersons = parseFloat(
+          document.getElementById("persons").value
+        );
+        const selectedBrand = parseFloat(
+          document.getElementById("Brand").value
+        );
+
+        const selectedCabinDimension = parseFloat(
+          document.getElementById("CabinDimension").value
+        );
+
+        const selectedConditions = parseFloat(
+          document.getElementById("Conditions").value
+        );
+        const selectedVoltage = parseFloat(
+          document.getElementById("Voltage").value
+        );
+
+        if (
+          isNaN(selectedCargoLifttypes) ||
+          isNaN(selectedNumberOfStops) ||
+          isNaN(selectedpersons) ||
+          isNaN(selectedBrand) ||
+          isNaN(selectedCabinDimension) ||
+          isNaN(selectedConditions) ||
+          isNaN(selectedVoltage)
+        ) {
+          alert("Please select all the options.");
+          return;
+        }
+
+        let totalPrice =
+          selectedCargoLifttypes +
+          selectedNumberOfStops +
+          selectedpersons +
+          selectedBrand +
+          selectedCabinDimension +
+          selectedConditions +
+          selectedVoltage;
+
+        let totalPriceINR = totalPrice + exchangeRate;
+        document.getElementById(
+          "result"
+        ).innerHTML = `The calculated price is: Rs${totalPriceINR.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

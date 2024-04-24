@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass cleaning Lift</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        margin: 20px;
+        background-color: #d3effd;
+      }
+      .title {
+        background-color: #d3effd;
+        padding: 12px 30px;
+        font-size: 25px;
+        border-radius: 8px;
+        color: #2b8fb1;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #2b8fb1;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        font-size: x-large;
+        padding: 20px 0px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+      main {
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 10px 40px;
+        border-radius: 20px;
+        background-color: white;
+      }
+      .product_color {
+        color: #2b8fb1;
+      }
+      button a {
+        text-decoration: none;
+        color: white;
+      }
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #2b8fb1;
+      }
+      .product-color {
+        color: #2b8fb1;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="title">Glass cleaning Lift</h1>
+      <select
+        name="stops"
+        id="GlasscleaningLift"
+        class="product-color"
+      ></select>
+      <select name="stops" id="NumberOfStops" class="product-color"></select>
+      <select name="persons" id="persons" class="product-color"></select>
+      <select name="persons" id="selectfeats" class="product-color"></select>
+      <select name="persons" id="Brand" class="product-color"></select>
+      <select name="persons" id="Conditions" class="product-color"></select>
+      <select name="persons" id="Category" class="product-color"></select>
+      <select name="voltage" id="Voltage" class="product-color"></select>
+      <button type="button" id="calculatePriceBtn">Calculate Price</button>
+      <div id="result"></div>
+      <a href="index.html" class="back-btn"
+        ><button type="button">Back</button></a
+      >
+    </main>
+    <script>
+      const GlasscleaningLift = [{ label: "GlasscleaningLift", price: 850000 }];
+      const NumberOfStops = [
+        { label: "Number of Stops" },
+        { label: "2 Stops", price: 0 },
+        { label: "3 Stops", price: 0 },
+        { label: "4 Stops", price: 0 },
+        { label: "5 Stops", price: 0 },
+        { label: "6 Stops", price: 0 },
+        { label: "7 Stops", price: 0 },
+        { label: "8 Stops", price: 0 },
+        { label: "9 Stops", price: 0 },
+        { label: "10 Stops", price: 0 },
+        { label: "11 Stops", price: 0 },
+        { label: "12 Stops", price: 0 },
+      ];
+      const persons = [
+        { label: "Weight/Persons" },
+
+        { label: "2-4 persons", price: 0 },
+        { label: "4-6 persons", price: 0 },
+      ];
+      const selectfeats = [
+        { label: "select feats" },
+        { label: "8 Feats", price: 0 },
+        { label: "12 Feats", price: 0 },
+      ];
+      const Brand = [
+        { label: "Brand" },
+        { label: "China", price: 0 },
+        { label: "Turkey", price: 0 },
+      ];
+
+      const Conditions = [
+        { label: "Conditions" },
+        { label: "New", price: 270000 },
+        { label: "Refurbished", price: 0 },
+      ];
+      const Category = [
+        { label: "Categorys" },
+        { label: "Fully Imported", price: 0 },
+        { label: "Semi Imported", price: 0 },
+      ];
+      const Voltage = [
+        { label: "Voltage" },
+        { label: "380V 3 Phase", price: 0 },
+      ];
+      function generateDropdownOptions(arg) {
+        let options = "";
+        for (let i = 0; i < arg.length; i++) {
+          options += `<option value="${arg[i].price}">${arg[i].label}</option>`;
+        }
+        return options;
+      }
+      document.getElementById("GlasscleaningLift").innerHTML =
+        generateDropdownOptions(GlasscleaningLift);
+      document.getElementById("NumberOfStops").innerHTML =
+        generateDropdownOptions(NumberOfStops);
+      document.getElementById("persons").innerHTML =
+        generateDropdownOptions(persons);
+      document.getElementById("selectfeats").innerHTML =
+        generateDropdownOptions(selectfeats);
+      document.getElementById("Brand").innerHTML =
+        generateDropdownOptions(Brand);
+      document.getElementById("Conditions").innerHTML =
+        generateDropdownOptions(Conditions);
+      document.getElementById("Category").innerHTML =
+        generateDropdownOptions(Category);
+      document.getElementById("Voltage").innerHTML =
+        generateDropdownOptions(Voltage);
+      document
+        .getElementById("calculatePriceBtn")
+        .addEventListener("click", calculatePrice);
+      document
+        .querySelector(".back-btn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          if (confirm("Are you sure you want to go back?")) {
+            window.history.back();
+          }
+        });
+      function calculatePrice() {
+        const exchangeRate = 0;
+        const selectedGlasscleaningLift = parseFloat(
+          document.getElementById("GlasscleaningLift").value
+        );
+        const selectedNumberOfStops = parseFloat(
+          document.getElementById("NumberOfStops").value
+        );
+        const selectedPersons = parseFloat(
+          document.getElementById("persons").value
+        );
+        const selectedselectfeats = parseFloat(
+          document.getElementById("selectfeats").value
+        );
+        const selectedBrand = parseFloat(
+          document.getElementById("Brand").value
+        );
+        const selectedConditions = parseFloat(
+          document.getElementById("Conditions").value
+        );
+        const selectedCategory = parseFloat(
+          document.getElementById("Category").value
+        );
+        const selectedVoltage = parseFloat(
+          document.getElementById("Voltage").value
+        );
+        if (
+          isNaN(selectedGlasscleaningLift) ||
+          isNaN(selectedNumberOfStops) ||
+          isNaN(selectedPersons) ||
+          isNaN(selectedselectfeats) ||
+          isNaN(selectedBrand) ||
+          isNaN(selectedConditions) ||
+          isNaN(selectedCategory) ||
+          isNaN(selectedVoltage)
+        ) {
+          alert("Please select all the options.");
+          return;
+        }
+        let totalPrice =
+          selectedGlasscleaningLift +
+          selectedNumberOfStops +
+          selectedPersons +
+          selectedVoltage +
+          selectedselectfeats +
+          selectedBrand +
+          selectedConditions +
+          selectedCategory;
+        let totalPriceINR = totalPrice + exchangeRate;
+        document.getElementById(
+          "result"
+        ).innerHTML = `The calculated price is: Rs${totalPriceINR.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>
